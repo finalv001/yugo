@@ -31,23 +31,24 @@ resize();
 resize();
 var pos = { x: 0, y: 0 };
 var colors = [
-    "#000000", 
-    "#FF0000", 
-    "#FFD700", 
-    "#FFFF00", 
-    "#00FF00", 
-    "#40E0D0", 
-    "#0000FF", 
-    "#4B0082", 
-    "#EE82EE", 
-    "#FF7F50", 
-    "#FF4500", 
-    "#FFC0CB", 
-    "#20B2AA", 
-    "#7FFF00", 
-    "#7B68EE", 
-    "#FF69B4"  
-  ];
+  "#000000",
+  "#FF0000",
+  "#DFFF00",
+  "#00FF00",
+  "#00FFFF",
+  "#0000FF",
+  "#FF00FF",
+  "#FF007F",
+  "#FF5733",
+  "#C70039",
+  "#900C3F",
+  "#581845",
+  "#DAF7A6",
+  "#FFC300",
+  "#FF5733",
+  "#C70039",
+  "#900C3F",
+];
 
 document.addEventListener("mousemove", draw);
 var textColor = colors[0];
@@ -64,7 +65,6 @@ function draw(e) {
   if (randomMode) {
     textColor = colors[Math.floor(Math.random() * colors.length)];
   }
-
 }
 
 function createWord() {
@@ -97,8 +97,6 @@ function createWord() {
   word.style.transform = `rotate(${rotation}deg)`;
   word.classList.add("word-out-of-view");
   document.querySelector("#rain-container").appendChild(word);
-
-  
 }
 
 function moveWords() {
@@ -125,22 +123,22 @@ function setupBehavior() {
   }
 }
 document.addEventListener("keydown", function (event) {
-    if (event.key === "s") {
-      clearCanvas();
-    } else if (event.key === "w") {
-      textColor = colors[0];
-      randomMode = false;
-    } else if (event.key === "a") {
-      textColor = colors[Math.floor(Math.random() * colors.length-1)];
-      randomMode = false;
-    } else if (event.key === "d") {
-      randomMode = !randomMode;
-    }
-  });
-  
-  window.addEventListener("resize", function() {
-    resize();
-    setupBehavior(); 
-  });
+  if (event.key === "s") {
+    clearCanvas();
+  } else if (event.key === "w") {
+    textColor = colors[0];
+    randomMode = false;
+  } else if (event.key === "a") {
+    textColor = colors[Math.floor(Math.random() * colors.length - 1)];
+    randomMode = false;
+  } else if (event.key === "d") {
+    randomMode = !randomMode;
+  }
+});
+
+window.addEventListener("resize", function () {
   resize();
   setupBehavior();
+});
+resize();
+setupBehavior();
