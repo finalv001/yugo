@@ -25,9 +25,6 @@ function resize() {
   context.scale(2, 2);
 }
 
-window.addEventListener("resize", resize);
-resize();
-
 resize();
 var pos = { x: 0, y: 0 };
 var colors = [
@@ -58,7 +55,7 @@ function draw(e) {
   context.font = 'bold 32px "Times New Roman", Times, serif';
   context.fillStyle = textColor;
   context.strokeStyle = "#fff";
-  context.lineWidth = 1;
+  context.lineWidth = 0.7;
 
   context.fillText("YUGO XYZ", e.clientX, e.clientY);
   context.strokeText("YUGO XYZ", e.clientX, e.clientY);
@@ -87,10 +84,10 @@ function createWord() {
    -1px 0 0 #fff,
     0 1px 0 #fff,
     0 -1px 0 #fff,
-    2px 2px #fff,
-    -2px -2px 0 #fff,
-    2px -2px 0 #fff,
-    -2px 2px 0 #fff`;
+    1px 1px #fff,
+    -1px -1px 0 #fff,
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff`;
 
   var rotation = Math.random() * 30 - 15;
   word.dataset.speed = Math.random() * 2 + 1;
