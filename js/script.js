@@ -25,7 +25,6 @@ function resize() {
   context.scale(2, 2);
 }
 
-resize();
 var pos = { x: 0, y: 0 };
 var colors = [
   "#000000",
@@ -47,7 +46,6 @@ var colors = [
   "#900C3F",
 ];
 
-document.addEventListener("mousemove", draw);
 var textColor = colors[0];
 var randomMode = false;
 
@@ -59,9 +57,7 @@ function draw(e) {
 
   context.fillText("YUGO XYZ", e.clientX, e.clientY);
   context.strokeText("YUGO XYZ", e.clientX, e.clientY);
-  if (randomMode) {
-    textColor = colors[Math.floor(Math.random() * colors.length)];
-  }
+
 }
 
 function createWord() {
@@ -120,17 +116,9 @@ function setupBehavior() {
   }
 }
 document.addEventListener("keydown", function (event) {
-  if (event.key === "s") {
+  if (event.key === "c") {
     clearCanvas();
-  } else if (event.key === "w") {
-    textColor = colors[0];
-    randomMode = false;
-  } else if (event.key === "a") {
-    textColor = colors[Math.floor(Math.random() * colors.length - 1)];
-    randomMode = false;
-  } else if (event.key === "d") {
-    randomMode = !randomMode;
-  }
+  } 
 });
 
 window.addEventListener("resize", function () {
